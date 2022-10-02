@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/common::header(Employees)">
+</head>
+<body>
+
+<!-- 顶部导航栏 -->
+<nav th:replace="common/common::topMenu"></nav>
+<!-- 顶部导航栏 -->
+
+<div class="container-fluid">
+    <div class="row">
+        
+        <!-- 侧边栏 -->
+        <nav th:replace="common/common::sidebarMenu('')"></nav>
+        <!-- 侧边栏 -->
+        
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            
+            <h2>Section title</h2>
+            <form method="post" th:action="@{/add}">
+                <div class="form-group row">
+                    <label for="inputId" class="col-sm-2 col-form-label">Id</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputId" name="id">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputName" name="name">
+                    </div>
+                </div>
+                <fieldset class="form-group row">
+                    <legend class="col-form-label col-sm-2 float-sm-left pt-0">Gender</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="1"
+                                   value="1" checked>
+                            <label class="form-check-label" for="1">
+                                男
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="0"
+                                   value="0">
+                            <label class="form-check-label" for="0">
+                                女
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group row">
+                    <label for="inputDepartment" class="col-sm-2 col-form-label">Department</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="inputDepartment" name="department.id">
+                            <option th:each="dept:${departmentList}" th:text="${dept.departmentName}"
+                                    th:value="${dept.id}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">添加</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
+
+
+<div th:replace="common/common::js"></div>
+</body>
+</html>
