@@ -4,34 +4,36 @@
     <div th:include="common/common::header('Index')"></div>
     
     <!-- Custom styles for this template -->
-    <link href="../static/css/signin.css" th:href="@{/css/signin.css}" rel="stylesheet">
+    <link href="../static/css/signin.css" rel="stylesheet" th:href="@{/css/signin.css}">
 </head>
 <body class="text-center">
-
-<form class="form-signin" th:action="@{/login}" th:method="post">
-    <img class="mb-4" src="../static/assets/brand/bootstrap-solid.svg"
-         th:src="@{/assets/brand/bootstrap-solid.svg}" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
-    <p style="color: red" th:text="${msg}"></p>
-    <label for="inputName" class="sr-only">Name</label>
-    <input type="text" id="inputName" name="name" class="form-control" placeholder="Name" th:placeholder="#{login.name}"
-           required
-           autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
-           th:placeholder="#{login.password}" required>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> [[#{login.remember}]]
-        </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{login.login}">Sign in</button>
-    <p class="mt-3 mb-3 text-muted">&copy; 2017-2021</p>
     
-    <!-- 在请求中传入参数实现手动切换语言环境 -->
-    <a class="btn btn-sm" th:href="@{/index(locale='zh_CN')}">中文</a>
-    <a class="btn btn-sm" th:href="@{/index(locale='en_US')}">English</a>
-</form>
+    <form class="form-signin" th:action="@{/login}" th:method="post">
+        <img alt="" class="mb-4"
+             height="72" src="../static/assets/brand/bootstrap-solid.svg" th:src="@{/assets/brand/bootstrap-solid.svg}"
+             width="72">
+        <h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
+        <p style="color: red" th:text="${msg}"></p>
+        <label class="sr-only" for="inputName">Name</label>
+        <input autofocus class="form-control" id="inputName" name="name" placeholder="Name"
+               required
+               th:placeholder="#{login.name}"
+               type="text">
+        <label class="sr-only" for="inputPassword">Password</label>
+        <input class="form-control" id="inputPassword" name="password" placeholder="Password" required
+               th:placeholder="#{login.password}" type="password">
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> [[#{login.remember}]]
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" th:text="#{login.login}" type="submit">Sign in</button>
+        <p class="mt-3 mb-3 text-muted">&copy; 2017-2021</p>
+        
+        <!-- 在请求中传入参数实现手动切换区域环境 -->
+        <a class="btn btn-sm" th:href="@{/index(locale='zh_CN')}">中文</a>
+        <a class="btn btn-sm" th:href="@{/index(locale='en_US')}">English</a>
+    </form>
 
 </body>
 </html>

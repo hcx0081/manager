@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Description:
+ * {@code @Description:}
  */
 @Repository
 public class EmployeeDao {
@@ -18,6 +18,8 @@ public class EmployeeDao {
      * 模拟数据库数据
      * */
     private static Map<Integer, Employee> employees;
+    // 主键自增
+    private static Integer initId = 106;
     
     static {
         employees = new HashMap<>();
@@ -41,9 +43,6 @@ public class EmployeeDao {
     public Employee getEmployeesById(Integer id) {
         return employees.get(id);
     }
-    
-    // 主键自增
-    private static Integer initId = 106;
     
     // 增加一个员工
     public void save(Employee employee) {

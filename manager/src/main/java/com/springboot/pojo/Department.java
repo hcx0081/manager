@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Description: 部门表
+ * {@code @Description:} 部门表
  */
 @Data
 @NoArgsConstructor

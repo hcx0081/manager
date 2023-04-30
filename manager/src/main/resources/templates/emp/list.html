@@ -3,54 +3,54 @@
 <head th:replace="common/common::header(Employees)">
 </head>
 <body>
-
-<!-- 顶部导航栏 -->
-<nav th:replace="common/common::topMenu"></nav>
-<!-- 顶部导航栏 -->
-
-<div class="container-fluid">
-    <div class="row">
-        
-        <!-- 侧边栏 -->
-        <nav th:replace="common/common::sidebarMenu(Employees)"></nav>
-        <!-- 侧边栏 -->
-        
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+    
+    <!-- 顶部导航栏 -->
+    <nav th:replace="common/common::topMenu"></nav>
+    <!-- 顶部导航栏 -->
+    
+    <div class="container-fluid">
+        <div class="row">
             
-            <h2>Section title</h2>
-            <a class="btn btn-sm btn-outline-dark mb-1" th:href="@{/toAdd}">添加员工</a>
-            <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Gender</th>
-                        <th>Department</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="employee:${employeeList}">
-                        <td th:text="${employee.id}"></td>
-                        <td th:text="${employee.name}"></td>
-                        <td th:text="${employee.gender==1?'男':'女'}"></td>
-                        <td th:text="${employee.department.departmentName}"></td>
-                        <td>
-                            <a class="btn btn-sm btn-primary" th:href="@{/toEdit(id=${employee.id})}">编辑</a>
-                            <!--RESTful风格-->
-                            <!--<a class="btn btn-sm btn-primary" th:href="@{/toEdit/}+${employee.id}">编辑</a>-->
-                            <a class="btn btn-sm btn-danger" th:href="@{/del(id=${employee.id})}">删除</a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </main>
+            <!-- 侧边栏 -->
+            <nav th:replace="common/common::sidebarMenu(Employees)"></nav>
+            <!-- 侧边栏 -->
+            
+            <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4" role="main">
+                
+                <h2>Section title</h2>
+                <a class="btn btn-sm btn-outline-dark mb-1" th:href="@{/toAdd}">添加员工</a>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Department</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="employee:${employeeList}">
+                            <td th:text="${employee.id}"></td>
+                            <td th:text="${employee.name}"></td>
+                            <td th:text="${employee.gender==1?'男':'女'}"></td>
+                            <td th:text="${employee.department.departmentName}"></td>
+                            <td>
+                                <a class="btn btn-sm btn-primary" th:href="@{/toEdit(id=${employee.id})}">编辑</a>
+                                <!--RESTful风格-->
+                                <!--<a class="btn btn-sm btn-primary" th:href="@{/toEdit/}+${employee.id}">编辑</a>-->
+                                <a class="btn btn-sm btn-danger" th:href="@{/del(id=${employee.id})}">删除</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
     </div>
-</div>
-
-
-<div th:replace="common/common::js"></div>
+    
+    
+    <div th:replace="common/common::js"></div>
 </body>
 </html>

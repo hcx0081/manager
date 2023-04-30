@@ -1,5 +1,4 @@
 # 国际化配置
 spring:
   messages:
-    basename: i18n.login # 国际化配置所在的资源包
-    
+    basename: i18n.login
